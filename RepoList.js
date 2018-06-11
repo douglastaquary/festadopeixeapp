@@ -36,7 +36,7 @@ class RepoList extends Component {
     </TouchableOpacity>
   );
 
-  _keyExtractor = (item, index) => item.id;
+  _keyExtractor = (item, index) => index.toString();
 
   render() {
     const { repos } = this.props;
