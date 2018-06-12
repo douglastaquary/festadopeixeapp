@@ -7,6 +7,7 @@ import {
     View
   } from 'react-native';
 
+import { Icon } from 'react-native-elements';
 
 export default class BookcaseItem extends Component {
     render() {
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: 'row',
     backgroundColor: '#FFF',
-    height: 100,
+    height: 240,
     padding: 10,
     marginRight: 10,
     marginLeft: 10,
@@ -38,9 +39,9 @@ const styles = StyleSheet.create({
     shadowRadius: 1
   },
   title: {
-    paddingLeft: 10,
-    paddingTop: 5,
-    fontSize: 16,
+    paddingLeft: 20,
+    paddingTop: 20,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#777'
   },
@@ -48,4 +49,4 @@ const styles = StyleSheet.create({
     flex: 4,
     flexDirection: 'column'
   }
-  });
+});

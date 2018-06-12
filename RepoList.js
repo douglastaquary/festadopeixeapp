@@ -19,19 +19,19 @@ class RepoList extends Component {
   };
 
   componentDidMount() {
-    this.props.listRepos('douglastaquary');
+    this.props.listRepos();
   }
 
   renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.item}
       onPress={() =>
-        this.props.navigation.navigate('Detail', { name: item.name })
+        this.props.navigation.navigate('Detail', { ...item })  
       }
     >
       <BookcaseItem
       id={item.id}
-      title={item.name}
+      title={item.date}
     />
     </TouchableOpacity>
   );

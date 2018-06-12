@@ -1,47 +1,47 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView } from 'react-native';
+import { Tile, List, ListItem } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { getRepoDetail } from './reducer';
 
 class RepoDetail extends Component {
   static navigationOptions = {
     title: 'Detalhes'
   };
-  componentDidMount() {
-    const { name } = this.props.navigation.state.params;
-    this.props.getRepoDetail('douglastaquary', name);
-  }
-  render() {
-    const { repoInfo, loadingInfo } = this.props;
-    if (loadingInfo) return <Text>Loading...</Text>;
 
-    const {
-      name,
-      full_name,
-      description,
-      forks_count,
-      stargazers_count
-    } = repoInfo;
+  render() {
+    
+    const { evento } = this.props.navigation.state.params;
 
     return (
-      <View>
-        <Text>{name}</Text>
-        <Text>{full_name}</Text>
-        <Text>{description}</Text>
-        <Text>Forks: {forks_count}</Text>
-        <Text>Stars: {stargazers_count}</Text>
-      </View>
+      <ScrollView>
+        <Tile
+          imageSrc={{ uri: evento.imagem}}
+          featured
+          title={evento.nome}
+          caption={evento.horario}
+        />
+
+        <List>
+          <ListItem
+            title="Local"
+            rightTitle={evento.local}
+            hideChevron
+          />
+          <ListItem
+            title="Descrição"
+            rightTitle={evento.descricao}
+            hideChevron
+          />
+        </List>
+      </ScrollView>
     );
   }
 }
 
-const mapStateToProps = ({ repoInfo, loadingInfo }) => ({
-  repoInfo,
-  loadingInfo
+
+const mapStateToProps = ({ evento}) => ({
+  evento
 });
 
-const mapDispatchToProps = {
-  getRepoDetail
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(RepoDetail);
+export default connect(mapStateToProps)(RepoDetail);

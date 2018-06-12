@@ -46,18 +46,18 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-export function listRepos(user) {
+export function listRepos() {
   return {
     type: GET_REPOS,
     payload: {
       request: {
-        url: `/users/${user}/repos`
+        url: `/douglastaquary/festadopeixeapi/master/data.json`
       }
     }
   };
 }
 
-export function getRepoDetail(user, repo) {
+export function getRepoDetail(u) {
   return {
     type: GET_REPO_INFO,
     payload: {

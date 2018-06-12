@@ -12,7 +12,7 @@ import RepoDetail from './RepoDetail';
 import Profile from './Profile';
 
 const client = axios.create({
-  baseURL: 'https://api.github.com',
+  baseURL: 'https://raw.githubusercontent.com',
   responseType: 'json'
 });
 
