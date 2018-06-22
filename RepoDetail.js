@@ -10,26 +10,26 @@ class RepoDetail extends Component {
 
   render() {
     
-    const { evento } = this.props.navigation.state.params;
+    const { nome, horario, local, descricao, imagem } = this.props.navigation.state.params;
 
     return (
       <ScrollView>
         <Tile
-          imageSrc={{ uri: evento.imagem}}
+          imageSrc = {{ uri: imagem}}
           featured
-          title={evento.nome}
-          caption={evento.horario}
+          title = { nome }
+          caption = { horario }
         />
 
         <List>
           <ListItem
             title="Local"
-            rightTitle={evento.local}
+            rightTitle={local}
             hideChevron
           />
           <ListItem
             title="Descrição"
-            rightTitle={evento.descricao}
+            rightTitle={descricao}
             hideChevron
           />
         </List>
@@ -39,8 +39,8 @@ class RepoDetail extends Component {
 }
 
 
-const mapStateToProps = ({ evento}) => ({
-  evento
+const mapStateToProps = ({ nome, horario, local, descricao, imagem }) => ({
+  nome, horario, local, descricao, imagem
 });
 
 

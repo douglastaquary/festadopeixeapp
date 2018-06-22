@@ -10,29 +10,27 @@ import {
 
 import { connect } from 'react-redux';
 
-import { listRepos } from './reducer';
-
 import BookcaseItem from './BookcaseItem';
 
-class RepoList extends Component {
+class Atracoes extends Component {
   static navigationOptions = {
     title: 'Atrações'
   };
 
-  componentDidMount() {
-    this.props.listRepos();
+    componentDidMount() {
+	const { programacao_cultural } = this.props.navigation.state.params;
   }
 
   renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.item}
       onPress={() =>
-        this.props.navigation.navigate('Atracoes', { ...item })  
+        this.props.navigation.navigate('Detail', { ...item })  
       }
     >
       <BookcaseItem
       id={item.id}
-      title={item.date}
+      title={item.nome}
     />
     </TouchableOpacity>
   );
@@ -40,7 +38,9 @@ class RepoList extends Component {
   _keyExtractor = (item, index) => index.toString();
 
   render() {
-    const { repos } = this.props;
+
+	const { programacao_cultural } = this.props.navigation.state.params;
+
     return (
       <View style={styles.container}>
         <StatusBar
@@ -48,7 +48,7 @@ class RepoList extends Component {
         />
         <FlatList
           styles={styles.container}
-          data={repos}
+          data={programacao_cultural}
           keyExtractor={this._keyExtractor}
           renderItem={this.renderItem}
         />
@@ -60,19 +60,16 @@ class RepoList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F0C1',
+    backgroundColor: '#E8EEC0',
   }
 });
 
-const mapStateToProps = state => {
-  let storedRepositories = state.repos.map(repo => ({ key: repo.id, ...repo }));
-  return {
-    repos: storedRepositories
-  };
-};
 
-const mapDispatchToProps = {
-  listRepos
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(RepoList);
+const mapStateToProps = ({ programacao_cultural}) => ({
+  programacao_cultural
+});
+
+
+
+export default connect(mapStateToProps)(Atracoes);

@@ -26,7 +26,7 @@ export default class BookcaseItem extends Component {
 const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: 'row',
-    backgroundColor: '#FFF',
+    backgroundColor: '#2BA08A',
     height: 240,
     padding: 10,
     marginRight: 10,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#777'
+    color: '#FCFDFD'
   },
   rowText: {
     flex: 4,

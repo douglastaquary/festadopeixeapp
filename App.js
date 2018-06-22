@@ -10,6 +10,7 @@ import reducer from './reducer';
 import RepoList from './RepoList';
 import RepoDetail from './RepoDetail';
 import Profile from './Profile';
+import Atracoes from './Atracoes';
 
 const client = axios.create({
   baseURL: 'https://raw.githubusercontent.com',
@@ -20,10 +21,16 @@ const store = createStore(reducer, applyMiddleware(axiosMiddleware(client)));
 
 const Tabs = createBottomTabNavigator({
   RepoList: {
-    screen: RepoList
+    screen: RepoList,
+    navigationOptions: {
+      title: 'Atrações',
+    },
   },
   Profile: {
-    screen: Profile
+    screen: Profile,
+    navigationOptions: {
+      title: 'Settings',
+    },
   }
 });
 
@@ -33,6 +40,9 @@ const Stack = createStackNavigator({
   },
   Detail: {
     screen: RepoDetail
+  },
+  Atracoes: {
+    screen: Atracoes
   }
 });
 
@@ -51,6 +61,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#2BA08A'
   }
 });
