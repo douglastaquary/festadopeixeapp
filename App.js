@@ -10,8 +10,8 @@ import axiosMiddleware from 'redux-axios-middleware';
 import reducer from './reducer';
 
 import RepoList from './RepoList';
-import RepoDetail from './RepoDetail';
-import Profile from './Profile';
+import AtracaoDetail from './AtracaoDetail';
+import Restaurantes from './Restaurantes';
 import Atracoes from './Atracoes';
 import Esportes from './Esportes';
 import Patrocinadores from './Patrocinadores';
@@ -27,7 +27,7 @@ const Tabs = createBottomTabNavigator({
   RepoList: {
       screen: RepoList,
       navigationOptions: () => ({
-            tabBarLabel: 'Add Book',
+            tabBarLabel: 'Atrações',
             tabBarIcon: ({tintColor}) => (
                 <Icon
                     name="music"
@@ -37,8 +37,8 @@ const Tabs = createBottomTabNavigator({
             )
       })
   },
-  Profile: {
-      screen: Profile,
+  Restaurantes: {
+      screen: Restaurantes,
       navigationOptions: () => ({
             tabBarIcon: ({tintColor}) => (
                 <Icon
@@ -90,7 +90,7 @@ const Stack = createStackNavigator({
     screen: Tabs
   },
   Detail: {
-    screen: RepoDetail
+    screen: AtracaoDetail
   },
   Atracoes: {
     screen: Atracoes

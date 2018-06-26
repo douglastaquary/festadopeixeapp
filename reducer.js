@@ -2,15 +2,15 @@ export const GET_REPOS = 'my-awesome-app/repos/LOAD';
 export const GET_REPOS_SUCCESS = 'my-awesome-app/repos/LOAD_SUCCESS';
 export const GET_REPOS_FAIL = 'my-awesome-app/repos/LOAD_FAIL';
 
-export const GET_REPO_INFO = 'my-awesome-app/repos/INFO';
-export const GET_REPO_INFO_SUCCESS = 'my-awesome-app/repos/INFO_SUCCESS';
-export const GET_REPO_INFO_FAIL = 'my-awesome-app/repos/INFO_FAIL';
+export const GET_PATROCINADORES = 'my-awesome-app/repos/INFO';
+export const GET_PATROCINADORES_SUCCESS = 'my-awesome-app/repos/INFO_SUCCESS';
+export const GET_PATROCINADORES_FAIL = 'my-awesome-app/repos/INFO_FAIL';
 
-export const GET_USER = 'my-awesome-app/repos/USER';
-export const GET_USER_SUCCESS = 'my-awesome-app/repos/USER_SUCCESS';
-export const GET_USER_FAIL = 'my-awesome-app/repos/USER_FAIL';
+export const GET_RESTAURANTES = 'my-awesome-app/repos/USER';
+export const GET_RESTAURANTES_SUCCESS = 'my-awesome-app/repos/USER_SUCCESS';
+export const GET_RESTAURANTES_FAIL = 'my-awesome-app/repos/USER_FAIL';
 
-const initialState = { repos: [], repoInfo: {}, user: {} };
+const initialState = { repos: [], patrocinadores: [], restaurantes: [] };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -19,27 +19,27 @@ export default function reducer(state = initialState, action) {
     case GET_REPOS_SUCCESS:
       return { ...state, loading: false, repos: action.payload.data };
     case GET_REPOS_FAIL:
-      return { ...state, loading: false, error: 'Error getting repos info' };
-    case GET_REPO_INFO:
+      return { ...state, loading: false, error: 'Error getting patrocinadores info' };
+    case GET_PATROCINADORES:
       return { ...state, loadingInfo: true };
-    case GET_REPO_INFO_SUCCESS:
-      return { ...state, loadingInfo: false, repoInfo: action.payload.data };
-    case GET_REPO_INFO_FAIL:
+    case GET_PATROCINADORES_SUCCESS:
+      return { ...state, loadingInfo: false, patrocinadores: action.payload.data };
+    case GET_PATROCINADORES_FAIL:
       console.log(action.payload);
       return {
         ...state,
         loadingInfo: false,
         errorInfo: 'Error getting repo info'
       };
-    case GET_USER:
-      return { ...state, loadingProfile: true };
-    case GET_USER_SUCCESS:
-      return { ...state, loadingProfile: false, user: action.payload.data };
-    case GET_USER_FAIL:
+    case GET_RESTAURANTES:
+      return { ...state, loadingInfo: true };
+    case GET_RESTAURANTES_SUCCESS:
+      return { ...state, loadingInfo: false, restaurantes: action.payload.data };
+    case GET_RESTAURANTES_FAIL:
       return {
         ...state,
         loadingProfile: false,
-        errorUser: 'Error getting user info'
+        errorInfo: 'Error getting restaurantes info'
       };
     default:
       return state;
@@ -57,23 +57,23 @@ export function listRepos() {
   };
 }
 
-export function getRepoDetail(u) {
+export function getPatrocinadores() {
   return {
-    type: GET_REPO_INFO,
+    type: GET_PATROCINADORES,
     payload: {
       request: {
-        url: `/repos/${user}/${repo}`
+        url: `/douglastaquary/festadopeixeapi/master/patrocinadores.json`
       }
     }
   };
 }
 
-export function getUser(user) {
+export function getRestaurantes() {
   return {
-    type: GET_USER,
+    type: GET_RESTAURANTES,
     payload: {
       request: {
-        url: `/users/${user}`
+        url: `/douglastaquary/festadopeixeapi/master/restaurantes.json`
       }
     }
   };

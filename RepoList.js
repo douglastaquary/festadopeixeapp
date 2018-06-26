@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 
 import { listRepos } from './reducer';
 
-import BookcaseItem from './BookcaseItem';
+import HomeItem from './HomeItem';
 
 class RepoList extends Component {
   static navigationOptions = {
@@ -31,9 +31,10 @@ class RepoList extends Component {
         this.props.navigation.navigate('Atracoes', { ...item })  
       }
     >
-      <BookcaseItem
+      <HomeItem
       id={item.id}
       title={item.date}
+      descricao={item.evento.descricao}
     />
     </TouchableOpacity>
   );
@@ -44,7 +45,7 @@ class RepoList extends Component {
 
     const { repos, loading } = this.props;
 
-    if (loading) return <ActivityIndicator size="large" color="#E8F0C1" />;
+    if (loading) return <ActivityIndicator size="small" color="#00ff00" />;
 
     return (
       <View style={styles.container}>

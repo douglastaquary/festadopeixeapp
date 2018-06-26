@@ -10,7 +10,7 @@ import {
 
 import { connect } from 'react-redux';
 
-import BookcaseItem from './BookcaseItem';
+import AtracoesItem from './AtracoesItem';
 
 class Atracoes extends Component {
   static navigationOptions = {
@@ -28,7 +28,7 @@ class Atracoes extends Component {
         this.props.navigation.navigate('Detail', { ...item })  
       }
     >
-      <BookcaseItem
+      <AtracoesItem
       id={item.id}
       title={item.nome}
     />

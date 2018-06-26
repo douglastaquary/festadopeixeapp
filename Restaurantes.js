@@ -4,30 +4,32 @@ import {
   Text, 
   ActivityIndicator, 
   FlatList, 
-  StyleSheet 
+  StyleSheet,
+  SafeAreaView 
 } from 'react-native';
 
 import { connect } from 'react-redux';
 
-import { getPatrocinadores } from './reducer';
+import { getRestaurantes } from './reducer';
 
-import PatrocinadorItem from './PatrocinadorItem';
+import RestauranteItem from './RestauranteItem';
 
 
-class Patrocinadores extends Component {
+class Restaurantes extends Component {
   static navigationOptions = {
-    title: 'Patrocinadores'
+    title: 'Comidas e Bebidas'
   };
 
   componentDidMount() {
-    this.props.getPatrocinadores();
+    this.props.getRestaurantes();
   }
 
     renderItem = ({ item }) => (
-      <PatrocinadorItem
+      <RestauranteItem
       id={item.id}
       nome={item.nome}
-      observacao={item.descricao}
+      comidas={item.comidas}
+      observacao={item.observacao}
       imagem={item.image}
     />
   );
@@ -38,29 +40,34 @@ class Patrocinadores extends Component {
 
   render() {
 
-    const { patrocinadores, loadingInfo } = this.props;
+    const { restaurantes, loadingInfo } = this.props;
 
     if (loadingInfo) return <ActivityIndicator size="small" color="#00ff00" />;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={{
+                flex: 1,
+                backgroundColor: '#E8F0C1'
+            }}>
+        <View style={styles.container}>
         {
-          patrocinadores.length?
+          restaurantes.length?
         
           (<FlatList
             styles={styles.container}
-            data={patrocinadores}
+            data={restaurantes}
             keyExtractor={this._keyExtractor}
             renderItem={this.renderItem}
           />) 
           :
           (
             <View style={styles.emptyListStyle}>
-              <Text style={styles.emptyMessageStyle}>Nenhum patrocinador foi encontrado!</Text>  
+              <Text style={styles.emptyMessageStyle}>Nenhum restaurante foi encontrado!</Text>  
             </View>
           )
         }
       </View>
+      </SafeAreaView>
     );
   }
 }
@@ -80,14 +87,14 @@ const styles = StyleSheet.create({
 });
 
 
-const mapStateToProps = ({ patrocinadores, loadingInfo }) => ({
-  patrocinadores,
+const mapStateToProps = ({ restaurantes, loadingInfo }) => ({
+  restaurantes,
   loadingInfo
 });
 
 
 const mapDispatchToProps = {
-  getPatrocinadores
+  getRestaurantes
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Patrocinadores);
+export default connect(mapStateToProps, mapDispatchToProps)(Restaurantes);

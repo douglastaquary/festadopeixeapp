@@ -9,7 +9,7 @@ import {
 
 import { Icon } from 'react-native-elements';
 
-export default class BookcaseItem extends Component {
+export default class AtracoesItem extends Component {
     render() {
         return(
           <View style={styles.rowContainer}>
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: 'row',
     backgroundColor: '#2BA08A',
-    height: 240,
+    height: 100,
     padding: 10,
     marginRight: 10,
     marginLeft: 10,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   title: {
     paddingLeft: 20,
-    paddingTop: 20,
+    paddingTop: 25,
     fontSize: 24,
     fontWeight: 'bold',
     color: '#FCFDFD'

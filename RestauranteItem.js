@@ -1,0 +1,86 @@
+import React, { Component } from 'react';
+import {
+    StyleSheet,
+    TouchableOpacity,
+    Text,
+    Image,
+    View
+  } from 'react-native';
+
+import { Icon } from 'react-native-elements';
+
+export default class RestauranteItem extends Component {
+
+  _onSelctedRestaurante = () => {}
+
+  render() {
+    return(
+      <TouchableOpacity onPress={this._onSelctedRestaurante}>
+        <View style={styles.rowContainer}>
+          <Image source={{uri: 'https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/grocery.png'}}
+          style={styles.imagem}
+          resizeMode="contain" />
+          <View style={styles.rowText}>
+            <Text style={styles.nome} numberOfLines={2} ellipsizeMode ={'tail'}>
+              {this.props.nome}
+            </Text>
+            <Text style={styles.comidas} numberOfLines={2} ellipsizeMode ={'tail'}>
+              {this.props.comidas}
+            </Text>
+
+            <Text style={styles.observacao} numberOfLines={1} ellipsizeMode ={'tail'}>
+              {this.props.observacao}
+            </Text>
+          </View>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  rowContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#FFF',
+    height: 160,
+    padding: 20,
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    borderRadius: 4,
+    shadowOffset:{  width: 1,  height: 1,  },
+    shadowColor: '#CCC',
+    shadowOpacity: 1.0,
+    shadowRadius: 1
+  },
+  nome: {
+    paddingLeft: 10,
+    paddingTop: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000000'
+
+  },
+  comidas: {
+    paddingLeft: 10,
+    marginTop: 5,
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#777'
+  },
+  observacao: {
+    paddingLeft: 10,
+    marginTop: 5,
+    fontSize: 14,
+    color: '#777'
+  },
+  imagem: {    
+    flex: 1,
+    height: 46,
+    width: 46
+  },
+  rowText: {
+    flex: 4,
+    flexDirection: 'column'
+  }
+  });
