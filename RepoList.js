@@ -44,7 +44,7 @@ class RepoList extends Component {
 
     const { repos, loading } = this.props;
 
-    if (loading) return <ActivityIndicator size="large" color="#0000ff" />;
+    if (loading) return <ActivityIndicator size="large" color="#E8F0C1" />;
 
     return (
       <View style={styles.container}>

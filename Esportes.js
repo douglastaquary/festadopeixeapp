@@ -8,6 +8,7 @@ class Esportes extends Component {
             <SafeAreaView style={{
                 flex: 1,
                 alignItems: 'center',
+                backgroundColor: '#E8F0C1',
                 justifyContent: 'center'
             }}>
                 <Text>Programação Esportiva</Text>
