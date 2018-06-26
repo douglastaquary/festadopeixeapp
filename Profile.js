@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { getUser } from './reducer';
 
@@ -14,7 +14,7 @@ class Profile extends Component {
   render() {
     const { user, loadingProfile } = this.props;
 
-    if (loadingProfile) return <Text>Loading...</Text>;
+    if (loadingProfile) return <ActivityIndicator size="large" color="#E8F0C1" />;
 
     const { name, login } = user;
     return (

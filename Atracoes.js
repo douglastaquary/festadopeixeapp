@@ -17,7 +17,7 @@ class Atracoes extends Component {
     title: 'Atrações'
   };
 
-    componentDidMount() {
+  componentDidMount() {
 	const { programacao_cultural } = this.props.navigation.state.params;
   }
 
@@ -57,6 +57,7 @@ class Atracoes extends Component {
   }
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -65,11 +66,9 @@ const styles = StyleSheet.create({
 });
 
 
-
 const mapStateToProps = ({ programacao_cultural}) => ({
   programacao_cultural
 });
-
 
 
 export default connect(mapStateToProps)(Atracoes);

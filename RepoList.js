@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  ActivityIndicator,
   Text,
   View,
   StatusBar,
@@ -40,10 +41,14 @@ class RepoList extends Component {
   _keyExtractor = (item, index) => index.toString();
 
   render() {
-    const { repos } = this.props;
+
+    const { repos, loading } = this.props;
+
+    if (loading) return <ActivityIndicator size="large" color="#0000ff" />;
+
     return (
       <View style={styles.container}>
-        <StatusBar
+
           barStyle="dark-content"
         />
         <FlatList
@@ -64,12 +69,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => {
-  let storedRepositories = state.repos.map(repo => ({ key: repo.id, ...repo }));
-  return {
-    repos: storedRepositories
-  };
-};
+const mapStateToProps = ({ repos, loading }) => ({
+  repos,
+  loading
+});
+
 
 const mapDispatchToProps = {
   listRepos

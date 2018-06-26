@@ -15,7 +15,7 @@ class RepoDetail extends Component {
     return (
       <ScrollView>
         <Tile
-          imageSrc = {{ uri: imagem}}
+          imageSrc = {{ uri: imagem }}
           featured
           title = { nome }
           caption = { horario }
