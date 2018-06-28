@@ -17,6 +17,12 @@ export default class AtracoesItem extends Component {
               <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>
                 {this.props.title}
               </Text>
+              <Text style={styles.estilo} numberOfLines={1} ellipsizeMode ={'tail'}>
+                {this.props.estilo}
+              </Text>
+              <Text style={styles.horario} numberOfLines={1} ellipsizeMode ={'tail'}>
+                {this.props.horario}
+              </Text>
             </View>
           </View>
         );
@@ -26,24 +32,34 @@ export default class AtracoesItem extends Component {
 const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: 'row',
-    backgroundColor: '#2BA08A',
-    height: 100,
-    padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    marginTop: 10,
-    borderRadius: 4,
-    shadowOffset:{  width: 1,  height: 1,  },
-    shadowColor: '#CCC',
-    shadowOpacity: 1.0,
-    shadowRadius: 1
+    backgroundColor: '#FFFFFF',
+    height: 120,
+    padding: 5,
+    marginRight: 0,
+    marginLeft: 0,
+    marginTop: 2,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   title: {
-    paddingLeft: 20,
-    paddingTop: 25,
-    fontSize: 24,
+    paddingLeft: 10,
+    paddingTop: 5,
+    fontSize: 22,
     fontWeight: 'bold',
-    color: '#FCFDFD'
+    color: '#777'
+  },
+  horario: {
+    paddingLeft: 10,
+    marginTop: 5,
+    fontSize: 14,
+    color: '#777'
+  },
+  estilo: {
+    paddingLeft: 10,
+    marginTop: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#777'
   },
   rowText: {
     flex: 4,

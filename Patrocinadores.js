@@ -28,7 +28,7 @@ class Patrocinadores extends Component {
       id={item.id}
       nome={item.nome}
       observacao={item.descricao}
-      imagem={item.image}
+      imagem={item.imagem}
     />
   );
 

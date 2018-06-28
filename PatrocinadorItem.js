@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginRight: 10,
     marginLeft: 10,
-    marginTop: 10,
+    marginTop: 8,
     borderRadius: 4,
     shadowOffset:{  width: 1,  height: 1,  },
     shadowColor: '#CCC',
@@ -54,18 +54,18 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#777'
+    color: '#000000'
   },
   observacao: {
     paddingLeft: 10,
-    marginTop: 5,
+    paddingTop: 8,
     fontSize: 14,
     color: '#777'
   },
   imagem: {
     flex: 1,
-    height: 46,
-    width: 46
+    height: undefined,
+    width: undefined
   },
   rowText: {
     flex: 4,

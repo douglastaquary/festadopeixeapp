@@ -30,7 +30,7 @@ class Restaurantes extends Component {
       nome={item.nome}
       comidas={item.comidas}
       observacao={item.observacao}
-      imagem={item.image}
+      imagem={item.imagem}
     />
   );
 

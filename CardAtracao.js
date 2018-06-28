@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native'; 
-import { sliderItemWidth, sliderItemHorizontalMargin, slideWidth } from './styles';
+import { sliderItemWidth, slideAtracaoWidth, sliderItemHorizontalMargin, slideWidth } from './styles';
 
-const Card = ({ imagem }) => (
+const CardAtracao = ({ imagem }) => (
   <View
     style={{
       width: sliderItemWidth,
@@ -15,7 +15,7 @@ const Card = ({ imagem }) => (
   >
     <View
       style={{
-        width: slideWidth,
+        width: 10,
         flex: 4,
         alignItems: 'center',
         justifyContent: 'center',
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Card;
+export default CardAtracao;
