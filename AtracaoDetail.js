@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { 
   Tile, 
-  List, 
+  List,
+  Text, 
   ListItem,
   View
  } from 'react-native-elements';
@@ -25,7 +26,10 @@ class AtracaoDetail extends Component {
           featured
           title = { nome }
           caption = { horario }
-        />
+        >
+          <Text>Alguma coisa</Text>
+          
+        </Tile>
         <List>
             <ListItem
               title="Local"
@@ -33,7 +37,7 @@ class AtracaoDetail extends Component {
               hideChevron
             />
             <ListItem
-              title="Descrição"
+              title="Estilo"
               rightTitle={descricao}
               hideChevron
             />
