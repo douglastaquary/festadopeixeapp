@@ -10,16 +10,14 @@ const CardAtracao = ({ imagem }) => (
       paddingHorizontal: sliderItemHorizontalMargin,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#E8F0C1',
     }}
   >
     <View
       style={{
-        width: 10,
+        width: slideAtracaoWidth,
         flex: 4,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white',
       }}
     >
       <Image source={{ uri: imagem }}

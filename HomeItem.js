@@ -17,8 +17,11 @@ export default class HomeItem extends Component {
         return(
           <View style={styles.rowContainer}>
             <View style={styles.rowText}>
-              <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>
-                {this.props.title}
+              <Text style={styles.title} numberOfLines={1} ellipsizeMode ={'tail'}>
+                {this.props.day}
+              </Text>
+              <Text style={styles.descricao} numberOfLines={1} ellipsizeMode ={'tail'}>
+                {this.props.date}
               </Text>
             </View>
           </View>
@@ -34,23 +37,24 @@ const styles = StyleSheet.create({
     padding: 10,
     marginRight: 0,
     marginLeft: 0,
-    marginTop: 5,
+    marginTop: 2,
     justifyContent: 'center',
     alignItems: 'center'
   },
   title: {
-    paddingLeft: 20,
+    paddingLeft: 10,
     paddingTop: 70,
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#000000',
   },
   descricao: {
-    paddingLeft: 20,
-    paddingTop: 40,
-    fontSize: 18,
-    color: '#777'
+    paddingLeft: 10,
+    paddingTop: 10,
+    fontWeight: 'bold',
+    fontSize: 22,
+    color: '#000000'
   },
   imagem: {    
     flex: 1,

@@ -40,19 +40,14 @@ export default class RestauranteItem extends Component {
 
 const styles = StyleSheet.create({
   rowContainer: {
-    flex: 4,
     flexDirection: 'row',
     backgroundColor: '#FFF',
     height: 130,
-    padding: 20,
-    marginRight: 10,
-    marginLeft: 10,
-    marginTop: 8,
-    borderRadius: 4,
-    shadowOffset:{  width: 1,  height: 1,  },
-    shadowColor: '#CCC',
-    shadowOpacity: 1.0,
-    shadowRadius: 1
+    padding: 10,
+    marginRight: 0,
+    marginLeft: 0,
+    marginTop: 2
+
   },
   nome: {
     paddingLeft: 10,
@@ -78,8 +73,10 @@ const styles = StyleSheet.create({
   },
   imagem: {    
     flex: 1,
-    height: undefined,
-    width: undefined
+    height: 56,
+    width: 56,
+    marginTop: 10,
+    marginLeft: 0,
   },
   rowText: {
     flex: 4,

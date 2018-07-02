@@ -19,11 +19,10 @@ const Card = ({ imagem }) => (
         flex: 4,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white',
       }}
     >
       <Image source={{ uri: imagem }}
-          style={styles.imagem}
+          style={styles.canvas}
           resizeMode="contain" 
       />
     </View>
@@ -34,9 +33,16 @@ const styles = StyleSheet.create({
     imagem: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: sliderItemWidth-2,
+        width: sliderItemWidth,
         height: 400,
     },
+    canvas: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+    }
 });
 
 export default Card;

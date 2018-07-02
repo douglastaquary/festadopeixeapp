@@ -10,10 +10,6 @@ import {
   StyleSheet
 } from 'react-native';
 
-         // "imagens": ["https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/cachoeira_urubu.jpg",
-         //             "https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/esp_cachoeira.jpg",
-         //             "https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/esp_vista_alto.jpg"]
-
 import Carousel from 'react-native-snap-carousel';
 
 import { connect } from 'react-redux';
@@ -23,21 +19,26 @@ import { listRepos } from './reducer';
 import HomeItem from './HomeItem';
 
 import { sliderWidth, sliderItemWidth } from './styles';
+
 import Card from './Card';
 
 
 class RepoList extends Component {
 
+
   state = {
-    imagens: [
+    atracoes: [
       {
-        imagem: 'https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/cachoeira_urubu.jpg'
+        imagem: 'https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/marilia_mendoncav2.jpeg'
       },
       {
-        imagem: 'https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/esp_cachoeira.jpg'
+        imagem: 'https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/zeze.jpeg'
       },
       {
-        imagem: 'https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/esp_vista_alto.jpg'
+        imagem: 'https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/marcia_felipev2.jpeg'
+      },
+      {
+        imagem: 'https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/luan_santanav2.jpeg'
       }
     ],
   };
@@ -59,7 +60,8 @@ class RepoList extends Component {
     >
       <HomeItem
       id={item.id}
-      title={item.date}
+      day={item.day}
+      date={item.date}
     />
     </TouchableOpacity>
   );
@@ -73,14 +75,19 @@ class RepoList extends Component {
 
   render() {
 
-    const { repos, loading } = this.props;
+    const { festivalInfo, loading } = this.props;
 
-    if (loading) return <ActivityIndicator size="small" color="#00ff00" />;
+    const {
+      imagens,
+      programacao
+    } = festivalInfo;
+
+    if (loading) return <ActivityIndicator style={styles.emptyListStyle} size="small" color= 'gray' />;
 
     return (
        <ScrollView style={{backgroundColor: '#E8F0C1'}}>
-        <Carousel
-          data={this.state.imagens}
+          <Carousel
+          data={this.state.atracoes}
           renderItem={this.renderListComponent}
           sliderWidth={sliderWidth}
           itemWidth={sliderItemWidth}
@@ -89,12 +96,12 @@ class RepoList extends Component {
           inactiveSlideOpacity={1}
         />
 
-        <FlatList
-          styles={styles.container}
-          data={repos}
-          keyExtractor={this._keyExtractor}
-          renderItem={this.renderItem}
-        />
+          <FlatList
+            styles={styles.container}
+            data={programacao}
+            keyExtractor={this._keyExtractor}
+            renderItem={this.renderItem}
+          />
       </ScrollView>
     );
   }
@@ -105,11 +112,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     backgroundColor: '#E8F0C1',
+  },
+  emptyListStyle: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  emptyMessageStyle: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  activityLoadingStyle: {
+    flex: 1,
+    justifyContent: 'center'
   }
 });
 
-const mapStateToProps = ({ repos, loading }) => ({
-  repos,
+const mapStateToProps = ({ festivalInfo, loading }) => ({
+  festivalInfo,
   loading
 });
 

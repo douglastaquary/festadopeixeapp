@@ -37,16 +37,16 @@ const styles = StyleSheet.create({
     padding: 5,
     marginRight: 0,
     marginLeft: 0,
-    marginTop: 2,
+    marginTop: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   title: {
     paddingLeft: 10,
     paddingTop: 5,
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#777'
+    color: '#1E6F65'
   },
   horario: {
     paddingLeft: 10,
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     marginTop: 5,
     fontSize: 16,
-    fontWeight: 'bold',
     color: '#777'
   },
   rowText: {

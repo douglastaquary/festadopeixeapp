@@ -40,7 +40,7 @@ class Patrocinadores extends Component {
 
     const { patrocinadores, loadingInfo } = this.props;
 
-    if (loadingInfo) return <ActivityIndicator size="small" color="#00ff00" />;
+    if (loadingInfo) return <ActivityIndicator style={styles.activityLoadingStyle} size="small" color= 'gray' />;
 
     return (
       <View style={styles.container}>
@@ -56,7 +56,7 @@ class Patrocinadores extends Component {
           :
           (
             <View style={styles.emptyListStyle}>
-              <Text style={styles.emptyMessageStyle}>Nenhum patrocinador foi encontrado!</Text>  
+              <Text style={styles.activityLoadingStyle}>Nenhum patrocinador foi encontrado!</Text>  
             </View>
           )
         }
@@ -76,6 +76,11 @@ const styles = StyleSheet.create({
   },
   emptyMessageStyle: {
     textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  activityLoadingStyle: {
+    flex: 1,
+    justifyContent: 'center'
   }
 });
 

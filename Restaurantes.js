@@ -5,8 +5,12 @@ import {
   ActivityIndicator, 
   FlatList, 
   StyleSheet,
-  SafeAreaView 
+  SafeAreaView,
+  ScrollView 
 } from 'react-native';
+
+import { Tile } from 'react-native-elements';
+
 
 import { connect } from 'react-redux';
 
@@ -42,31 +46,25 @@ class Restaurantes extends Component {
 
     const { restaurantes, loadingInfo } = this.props;
 
-    if (loadingInfo) return <ActivityIndicator size="small" color="#00ff00" />;
+    if (loadingInfo) return <ActivityIndicator style={styles.emptyListStyle} size="small" color= 'gray' />;
 
     return (
       <SafeAreaView style={{
-                flex: 1,
-                backgroundColor: '#E8F0C1'
-            }}>
-        <View style={styles.container}>
-        {
-          restaurantes.length?
-        
-          (<FlatList
+          flex: 1,
+          backgroundColor: '#E8F0C1'
+      }}>
+        <ScrollView style={{backgroundColor: '#E8F0C1'}}>
+          <Tile
+            imageSrc={{ uri: 'https://raw.githubusercontent.com/douglastaquary/festadopeixeapi/master/tilapia.jpeg'}}
+            featured
+          />
+          <FlatList
             styles={styles.container}
             data={restaurantes}
             keyExtractor={this._keyExtractor}
             renderItem={this.renderItem}
-          />) 
-          :
-          (
-            <View style={styles.emptyListStyle}>
-              <Text style={styles.emptyMessageStyle}>Nenhum restaurante foi encontrado!</Text>  
-            </View>
-          )
-        }
-      </View>
+          />
+        </ScrollView>
       </SafeAreaView>
     );
   }
@@ -83,6 +81,10 @@ const styles = StyleSheet.create({
   },
   emptyMessageStyle: {
     textAlign: 'center',
+  },
+  activityLoadingStyle: {
+    flex: 1,
+    justifyContent: 'center'
   }
 });
 

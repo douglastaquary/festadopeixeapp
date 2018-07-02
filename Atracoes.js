@@ -42,7 +42,8 @@ class Atracoes extends Component {
   };
 
   componentDidMount() {
-	const { programacao_cultural } = this.props.navigation.state.params;
+
+	 const { programacao_cultural } = this.props.navigation.state.params;
   }
 
   renderItem = ({ item }) => (
@@ -62,13 +63,14 @@ class Atracoes extends Component {
 
   render() {
 
-	const { programacao_cultural } = this.props.navigation.state.params;
+
+	const { programacao_cultural, atracoes } = this.props.navigation.state.params;
 
     return (
 
-      <ScrollView style={{backgroundColor: '#E8F0C1'}}>
+      <ScrollView style={{backgroundColor: '#FFFFFF'}}>
         <Carousel
-          data={this.state.atracoes}
+          data={atracoes}
           renderItem={this.renderListComponent}
           sliderWidth={sliderWidth}
           itemWidth={sliderItemWidth}
@@ -97,13 +99,14 @@ class Atracoes extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8EEC0',
+    backgroundColor: '#AAAAAA',
   }
 });
 
 
-const mapStateToProps = ({ programacao_cultural}) => ({
-  programacao_cultural
+const mapStateToProps = ({ programacao_cultural, atracoes }) => ({
+  programacao_cultural,
+  atracoes
 });
 
 

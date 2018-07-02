@@ -10,14 +10,14 @@ export const GET_RESTAURANTES = 'my-awesome-app/repos/USER';
 export const GET_RESTAURANTES_SUCCESS = 'my-awesome-app/repos/USER_SUCCESS';
 export const GET_RESTAURANTES_FAIL = 'my-awesome-app/repos/USER_FAIL';
 
-const initialState = { repos: [], patrocinadores: [], restaurantes: [] };
+const initialState = { festivalInfo: {}, patrocinadores: [], restaurantes: [] };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_REPOS:
       return { ...state, loading: true };
     case GET_REPOS_SUCCESS:
-      return { ...state, loading: false, repos: action.payload.data };
+      return { ...state, loading: false, festivalInfo: action.payload.data };
     case GET_REPOS_FAIL:
       return { ...state, loading: false, error: 'Error getting patrocinadores info' };
     case GET_PATROCINADORES:
@@ -51,7 +51,7 @@ export function listRepos() {
     type: GET_REPOS,
     payload: {
       request: {
-        url: `/douglastaquary/festadopeixeapi/master/data.json`
+        url: `/douglastaquary/festadopeixeapi/master/programacaov2.json`
       }
     }
   };

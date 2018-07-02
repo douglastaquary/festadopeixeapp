@@ -22,6 +22,7 @@
     "expo": "^28.0.0",
     "react": "16.3.1",
     "react-native": "~0.55.2",
+    "react-native-communications": "^2.2.1",
     "react-native-elements": "^0.19.1",
     "react-native-expand": "^1.0.6",
     "react-native-snap-carousel": "^3.7.2",

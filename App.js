@@ -15,6 +15,8 @@ import Restaurantes from './Restaurantes';
 import Atracoes from './Atracoes';
 import Esportes from './Esportes';
 import Patrocinadores from './Patrocinadores';
+import Infos from './Infos';
+import Workshops from './Workshops';
 
 const client = axios.create({
   baseURL: 'https://raw.githubusercontent.com',
@@ -37,6 +39,18 @@ const Tabs = createBottomTabNavigator({
             )
       })
   },
+    Esportes: {
+      screen: Esportes,
+      navigationOptions: () => ({
+            tabBarIcon: ({tintColor}) => (
+                <Icon
+                    name="flag-checkered"
+                    color={tintColor}
+                    size={24}
+                />
+            )
+      })
+  },
   Restaurantes: {
       screen: Restaurantes,
       navigationOptions: () => ({
@@ -49,12 +63,12 @@ const Tabs = createBottomTabNavigator({
             )
       })
   },
-  Esportes: {
-      screen: Esportes,
+    Workshops: {
+      screen: Workshops,
       navigationOptions: () => ({
             tabBarIcon: ({tintColor}) => (
                 <Icon
-                    name="flag-checkered"
+                    name="book"
                     color={tintColor}
                     size={24}
                 />
@@ -72,11 +86,23 @@ const Tabs = createBottomTabNavigator({
                 />
             )
       })
+  },
+  Infos: {
+      screen: Infos,
+      navigationOptions: () => ({
+            tabBarIcon: ({tintColor}) => (
+                <Icon
+                    name="info"
+                    color={tintColor}
+                    size={24}
+                />
+            )
+      })
   }
 },{
     tabBarOptions: {
         showLabel: false,
-        activeTintColor: '#FDD866',
+        activeTintColor: '#1E6F65',
         inactiveTintColor: '#d3d3d3',
         style: {
             backgroundColor: '#FFFFFF'
@@ -100,6 +126,12 @@ const Stack = createStackNavigator({
   },
   Patrocinadores: {
     screen: Patrocinadores
+  },
+  Infos: {
+    screen: Infos
+  },
+    Workshops: {
+    screen: Workshops
   }
 });
 
